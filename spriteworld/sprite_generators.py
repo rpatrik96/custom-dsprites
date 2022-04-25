@@ -24,7 +24,7 @@ import itertools
 import numpy as np
 from scipy.stats import norm
 
-import sprite
+from spriteworld import sprite
 
 
 def generate_sprites(factor_dist, num_sprites=1):

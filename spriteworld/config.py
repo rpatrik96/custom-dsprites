@@ -1,8 +1,9 @@
 import numpy as np
 
-import factor_distributions as distribs
-import renderers as spriteworld_renderers
-import sprite_generators, tasks
+import spriteworld.factor_distributions as distribs
+import spriteworld.renderers as spriteworld_renderers
+from spriteworld import sprite_generators, tasks
+
 
 
 

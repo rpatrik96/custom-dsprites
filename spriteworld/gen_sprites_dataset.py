@@ -5,13 +5,13 @@ import numpy as np
 import torch
 
 from args import parse_args
-from custom_generators import generate_isprites
-from transforms import (
+from spriteworld.custom_generators import generate_isprites
+from .transforms import (
     projective_transform,
     affine_transform,
     hsv_change,
 )
-from utils import sprites_filename, to_one_hot
+from .utils import sprites_filename, to_one_hot
 
 
 def sprites_gen_wrapper(nobs, nclasses, projective, affine, deltah, deltas, deltav, angle, shape, lower, upper):

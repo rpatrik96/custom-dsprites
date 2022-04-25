@@ -21,7 +21,7 @@ from __future__ import print_function
 
 import enum
 import numpy as np
-import shapes
+from spriteworld import shapes
 
 # A selection of simple shapes
 SHAPES = {

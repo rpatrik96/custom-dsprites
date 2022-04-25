@@ -1,8 +1,8 @@
 import numpy as np
 
 
-import environment as spriteworld_environment
-from config import random_sprites_config
+import spriteworld.environment as spriteworld_environment
+from .config import random_sprites_config
 
 
 def collect_frames(config, label, num_frames, angle:bool, shape:bool, S):

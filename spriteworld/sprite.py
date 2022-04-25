@@ -23,7 +23,7 @@ import collections
 from matplotlib import path as mpl_path
 from matplotlib import transforms as mpl_transforms
 import numpy as np
-import constants
+from spriteworld import constants
 
 FACTOR_NAMES = (
     "x",  # x-position of sprite center-of-mass (float)
