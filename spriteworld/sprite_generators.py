@@ -20,11 +20,11 @@ from __future__ import division
 from __future__ import print_function
 
 import itertools
+
 import numpy as np
-import torch
-from spriteworld import sprite
 from scipy.stats import norm
-import scipy
+
+import sprite
 
 
 def generate_sprites(factor_dist, num_sprites=1):

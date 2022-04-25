@@ -23,7 +23,7 @@ from dm_env import specs
 import numpy as np
 from spriteworld import constants
 from spriteworld import sprite as sprite_lib
-from spriteworld.renderers import abstract_renderer
+from . import abstract_renderer
 
 
 class SpriteFactors(abstract_renderer.AbstractRenderer):

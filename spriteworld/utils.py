@@ -19,27 +19,26 @@ def to_one_hot(x, m=None):
 
 
 def sprites_filename(
-    n_obs,
-    n_classes,
-    projective: bool = False,
-    affine: bool = False,
-    hsv_change: bool = False,
-    shape: bool = False,
-    angle: bool = False,
-    lower: int = 2,
-    upper: int = 15,
-    extension: bool = True,
+        n_obs,
+        n_classes,
+        projective: bool = False,
+        affine: bool = False,
+        hsv_change: bool = False,
+        shape: bool = False,
+        angle: bool = False,
+        lower: int = 2,
+        upper: int = 15,
+        extension: bool = True,
 ):
-
     filename = (
-        "isprites_nclasses_"
-        + str(n_classes)
-        + "_nobs_"
-        + str(int(n_obs))
-        + "_lower_"
-        + str(lower)
-        + "_upper_"
-        + str(upper)
+            "isprites_nclasses_"
+            + str(n_classes)
+            + "_nobs_"
+            + str(int(n_obs))
+            + "_lower_"
+            + str(lower)
+            + "_upper_"
+            + str(upper)
     )
 
     if angle is True:

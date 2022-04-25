@@ -1,15 +1,12 @@
 import numpy as np
 
-
-from ima_vae.data.data_generators.spriteworld import (
-    factor_distributions as distribs,
-    sprite_generators,
-    renderers as spriteworld_renderers,
-    tasks,
-)
+import factor_distributions as distribs
+import renderers as spriteworld_renderers
+import sprite_generators, tasks
 
 
-def random_sprites_config(beta_params, label, args, angle_params, shape_probs):
+
+def random_sprites_config(beta_params, label, angle:bool, angle_params, shape_probs, shape:bool, lower, upper):
     factor_list = [
         distribs.Beta("x", beta_params[label][0][0], beta_params[label][0][1]),
         distribs.Beta("y", beta_params[label][1][0], beta_params[label][1][1]),
@@ -20,14 +17,14 @@ def random_sprites_config(beta_params, label, args, angle_params, shape_probs):
         distribs.Continuous("c2", 1.0, 1.0),
     ]
 
-    if args.angle:
-        angles = np.random.uniform(args.lower, args.upper, 2)
+    if angle is True:
+        angles = np.random.uniform(lower, upper, 2)
         angle_params[label] = angles
         factor_list.append(
             distribs.Beta("angle", angle_params[label][0], angle_params[label][1])
         )
 
-    if args.shape:
+    if shape is True:
         probs = np.random.uniform(0, 1, 3)
         probs = probs / probs.sum()
         shape_probs[label] = probs

@@ -36,7 +36,7 @@ def affine_transform(X: np.ndarray) -> np.ndarray:
 
 
 def hsv_change(
-    img: np.ndarray, delta_h: int = 0, delta_s: int = 0, delta_v: int = 0
+        img: np.ndarray, delta_h: int = 0, delta_s: int = 0, delta_v: int = 0
 ) -> np.ndarray:
     hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
     h, s, v = cv2.split(hsv)
