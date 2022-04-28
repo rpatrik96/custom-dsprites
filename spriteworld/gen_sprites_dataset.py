@@ -4,7 +4,7 @@ from os.path import dirname, abspath, join, isdir
 import numpy as np
 import torch
 
-from args import parse_args
+from .args import parse_args
 from spriteworld.custom_generators import generate_isprites
 from .transforms import (
     projective_transform,
