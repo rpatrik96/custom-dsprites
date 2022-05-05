@@ -3,9 +3,9 @@ from os.path import dirname, abspath, join, isdir
 
 import numpy as np
 import torch
+from spriteworld.custom_generators import generate_isprites
 
 from .args import parse_args
-from spriteworld.custom_generators import generate_isprites
 from .transforms import (
     projective_transform,
     affine_transform,
@@ -14,8 +14,11 @@ from .transforms import (
 from .utils import sprites_filename, to_one_hot
 
 
-def sprites_gen_wrapper(nobs, nclasses, projective, affine, deltah, deltas, deltav, angle, shape, lower, upper):
+def sprites_gen_wrapper(nobs, nclasses, projective, affine, deltah, deltas, deltav, angle, shape, lower, upper,
+                        seed=42):
     # init
+    np.random.seed(seed)
+    torch.manual_seed(seed)
     nfactors = 4
     beta_params = (
         torch.Tensor(np.random.uniform(lower, upper, 2 * nfactors * nclasses)).view(nclasses, nfactors, 2).numpy())
@@ -51,7 +54,7 @@ def sprites_gen_wrapper(nobs, nclasses, projective, affine, deltah, deltas, delt
         makedirs(sprites_dir)
 
     filename = sprites_filename(nobs, nclasses, projective, affine, deltah != 0 or deltas != 0 or deltav != 0, shape,
-                                angle, lower, upper, extension=False )
+                                angle, lower, upper, seed=seed, extension=False)
 
     np.savez_compressed(
         join(sprites_dir, filename), X, Y, S, beta_params, angle_params, shape_probs

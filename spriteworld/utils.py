@@ -18,18 +18,9 @@ def to_one_hot(x, m=None):
     return xoh
 
 
-def sprites_filename(
-        n_obs,
-        n_classes,
-        projective: bool = False,
-        affine: bool = False,
-        hsv_change: bool = False,
-        shape: bool = False,
-        angle: bool = False,
-        lower: int = 2,
-        upper: int = 15,
-        extension: bool = True,
-):
+def sprites_filename(n_obs, n_classes, projective: bool = False, affine: bool = False, hsv_change: bool = False,
+                     shape: bool = False, angle: bool = False, lower: int = 2, upper: int = 15, extension: bool = True,
+                     seed:int=42):
     filename = (
             "isprites_nclasses_"
             + str(n_classes)
@@ -39,6 +30,8 @@ def sprites_filename(
             + str(lower)
             + "_upper_"
             + str(upper)
+            + "_seed_"
+            + str(seed)
     )
 
     if angle is True:
