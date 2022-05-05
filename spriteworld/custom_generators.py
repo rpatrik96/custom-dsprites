@@ -35,7 +35,6 @@ def collect_frames(config, label, num_frames, angle:bool, shape:bool, S):
 def generate_isprites(num_classes, obs_per_class, beta_params, S, angle, angle_params, shape_probs, shape, lower,
                       upper):
     for i in range(num_classes):
-        print(i)
         if i == 0:
             full_obs = collect_frames(
                 random_sprites_config(beta_params, i, angle, angle_params, shape_probs, shape, lower, upper), i,
